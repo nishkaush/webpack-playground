@@ -6,6 +6,15 @@ module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    stats: "errors-only"
+    stats: "errors-only",
+    hot: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
+    ]
   }
 });
